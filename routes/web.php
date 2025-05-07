@@ -35,10 +35,7 @@ use App\Http\Controllers\OrderLanjutanController;
 use App\Http\Controllers\PesananBarangController;
 use App\Http\Controllers\LaporanPreorderController;
 
-Route::get('/run-migrate', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return 'Migration done!';
-});
+
 
 Route::get('/', function () {
     return view('auth.login');
