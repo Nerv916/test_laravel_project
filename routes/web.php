@@ -9,6 +9,7 @@ use App\Models\ApprovedItems;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PdfController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\RoleController;
@@ -34,7 +35,10 @@ use App\Http\Controllers\OrderLanjutanController;
 use App\Http\Controllers\PesananBarangController;
 use App\Http\Controllers\LaporanPreorderController;
 
-
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration done!';
+});
 
 Route::get('/', function () {
     return view('auth.login');
